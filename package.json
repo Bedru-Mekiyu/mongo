@@ -1,14 +1,22 @@
 {
-  "name": "mongodb",
+  "name": "bookstore-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Express REST API with MongoDB for managing a books collection with pagination and CRUD operations.",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "node --test"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "express",
+    "mongodb",
+    "rest-api",
+    "nodejs",
+    "books-api"
+  ],
+  "author": "Bedru Mekiyu",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "express": "^5.2.1",
     "mongodb": "^7.0.0",

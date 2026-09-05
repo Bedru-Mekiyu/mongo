@@ -1,17 +1,19 @@
-const {MongoClient} = require("mongodb");
+const { MongoClient } = require("mongodb");
 
 let dbConnection;
-module.exports={
-    connectToDb:(cb)=>{
-MongoClient.connect('mongodb+srv://bedru:v9nK4GEdgVj2fJ6n@cluster0.thtkp7k.mongodb.net/')
-        .then((client)=>{
-dbConnection = client.db();
-            return cb()
-        })
-        .catch(err=>{
-            console.log(err)
-            return cb(err)
-        })
-    },
-    getDb:()=>dbConnection
-}
+
+module.exports = {
+  connectToDb: (cb) => {
+    const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/bookstore";
+    MongoClient.connect(uri)
+      .then((client) => {
+        dbConnection = client.db();
+        return cb();
+      })
+      .catch((err) => {
+        console.log(err);
+        return cb(err);
+      });
+  },
+  getDb: () => dbConnection,
+};
